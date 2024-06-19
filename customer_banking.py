@@ -43,19 +43,21 @@ def main():
         print(f"This is the updated balance after {savings_maturity} months with an interest rate of {savings_interest}%")
     except ValueError as e:
         print(f"An error occured while processingg the savings account: {e}")
-        
+
     # Prompt the user to set the CD balance, interest rate, and months for the CD account.
-    cd_balance = float(input("Enter the CD account balance: "))
-    cd_interest = float(input("Enter the CD account interest rate: "))
-    cd_maturity = int(input("Enter the number of months for the CD account: "))
+    cd_balance = get_float("Enter the CD account balance: ")
+    cd_interest = get_float("Enter the CD account interest rate: ")
+    cd_maturity = get_int("Enter the number of months for the CD account: ")
 
     # Call the create_cd_account function and pass the variables from the user.
-    updated_cd_balance, interest_earned = create_cd_account(cd_balance, cd_interest, cd_maturity)
-
-    # Print out the interest earned and updated CD account balance with interest earned for the given months.
-    print(f"The interest earned on the CD account is: ${interest_earned:.2f}")
-    print(f"The updated CD account balance is: ${updated_cd_balance:.2f}")
-    print(f"This is the updated balance after {cd_maturity} months with an interest rate of {cd_interest}%")
-
+    try:
+        updated_cd_balance, interest_earned = create_cd_account(cd_balance, cd_interest, cd_maturity)
+        # Print out the interest earned and updated CD account balance with interest earned for the given months.
+        print(f"The interest earned on the CD account is: ${interest_earned:.2f}")
+        print(f"The updated CD account balance is: ${updated_cd_balance:.2f}")
+        print(f"This is the updated balance after {cd_maturity} months with an interest rate of {cd_interest}%")
+    except ValueError as e:
+        print(f"An error occured while processingg the CD account: {e}")
+        
 if __name__ == "__main__":
     main()

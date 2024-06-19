@@ -8,17 +8,17 @@ def get_float(prompt):
         try:
             value = float(input(prompt))
             if value < 0:
-                raise ValueError("Please enter a positive number.")
+                raise ValueError(value)
             return value
         except ValueError as e:
-            print(f"{e} is an invalid input. Please enter a posittive number.")
+            print(f"{e} is an invalid input. Please enter a positive number.")
 
 def get_int(prompt):
     while True:
         try:
             value = int(input(prompt))
             if value < 0:
-                raise ValueError("Please enter a positive number.")
+                raise ValueError(value)
             return value
         except ValueError as e:
             print(f"{e} is an invalid input. Please enter a positive number.")
@@ -58,6 +58,6 @@ def main():
         print(f"This is the updated balance after {cd_maturity} months with an interest rate of {cd_interest}%")
     except ValueError as e:
         print(f"An error occured while processingg the CD account: {e}")
-        
+
 if __name__ == "__main__":
     main()

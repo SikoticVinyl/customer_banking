@@ -2,6 +2,17 @@
 from cd_account import create_cd_account
 from savings_account import create_savings_account
 
+#Optionally adding error handling to the main function
+def get_float(prompt):
+    while True:
+        try:
+            value = float(input(prompt))
+            if value < 0:
+                raise ValueError("Please enter a positive number.")
+            return value
+        except ValueError as e:
+            print(f"{e} is an invalid input. Please enter a posittive number.")
+
 # Define the main function
 def main():
     """This function prompts the user to enter the savings and cd account balance, interest rate,

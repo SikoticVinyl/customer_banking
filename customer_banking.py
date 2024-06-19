@@ -13,6 +13,16 @@ def get_float(prompt):
         except ValueError as e:
             print(f"{e} is an invalid input. Please enter a posittive number.")
 
+def get_int(prompt):
+    while True:
+        try:
+            value = int(input(prompt))
+            if value < 0:
+                raise ValueError("Please enter a positive number.")
+            return value
+        except ValueError as e:
+            print(f"{e} is an invalid input. Please enter a positive number.")
+
 # Define the main function
 def main():
     """This function prompts the user to enter the savings and cd account balance, interest rate,
